@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Nilai Siswa</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Daftar Nilai Siswa</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nomor</th>
+                <th>Nama</th>
+                <th>Nilai</th>
+                <th>Keterangan</th>
+                <th>Grade</th>
+                <th>Predikat</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                let s1 = {"nama": "Andi", nilai:80};
+                let s2 = {"nama": "Ali", nilai:90};
+                let s3 = {"nama": "Aji", nilai:70};
+                let s4 = {"nama": "Ani", nilai:90};
+                let s5 = {"nama": "Ando", nilai:85};
+
+                let siswa = [s1,s2,s3,s4,s5];
+                
+                var no = 1;
+                for(s of siswa){
+                    let ket = (s.nilai >= 60) ? "Lulus" : "Gagal";
+                    let grade = "";
+                    let predikat = "";
+                    if(s.nilai > 85 && s.nilai <= 100) grade = "A";
+                    else if(s.nilai >75 && s.nilai <= 85) grade = "B";
+                    else if(s.nilai >60 && s.nilai <= 85) grade = "C";
+                    else if(s.nilai >30 && s.nilai <= 85) grade = "D";
+                    else if(s.nilai >0 && s.nilai <= 85) grade = "E";
+                    else grade ="";
+                    switch(grade){
+                        case "A" : predikat = "Sempurna"; break;
+                        case "B" : predikat = "Baik"; break;
+                        case "C" : predikat = "Cukup"; break;
+                        case "D" : predikat = "Kurang"; break;
+                        case "E" : predikat = "Buruk"; break;
+                        default : predikat = ""; break;
+                    }
+                    document.write("<tr>");
+                    document.write("<td>" + no + "</td>");
+                    document.write("<td>" + s.nama + "</td>");
+                    document.write("<td>" + s.nilai + "</td>");
+                    document.write("<td>" + ket + "</td>");
+                    document.write("<td>" + grade + "</td>");
+                    document.write("<td>" + predikat + "</td>");
+                    document.write("</tr>");
+                    no++;
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>
